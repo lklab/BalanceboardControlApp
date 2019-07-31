@@ -107,7 +107,7 @@
                 android:layout_weight="1">
 
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="45dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="시그널 주기\n(밀리초)"
@@ -293,37 +293,50 @@
             <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:entries="@array/exercises"
-                    android:textSize="15sp"/>
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:entries="@array/levels"/>
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_span="2"
                     android:gravity="center"
                     android:entries="@array/exercises"/>
 
             <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:entries="@array/levels"/>
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_span="2"
                     android:gravity="center"
                     android:entries="@array/exercises"/>
 
             <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:entries="@array/exercises"/>
+
+        </TableRow>
+
+        <!-- ******************** level selection ******************** -->
+        <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:entries="@array/levels"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:entries="@array/levels"/>
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_span="2"
                     android:gravity="center"
                     android:entries="@array/levels"/>
 
