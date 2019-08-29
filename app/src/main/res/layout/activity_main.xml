@@ -7,406 +7,54 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="1,3,5"
-            android:shrinkColumns="*">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainHorizontalScrollView">
 
-        <!-- ******************** title ******************** -->
-        <TableRow
+        <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/mainLinearLayout">
 
-            <TextView
-                    android:layout_width="wrap_content"
+            <fragment
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="동기화 관리"
-                    android:textSize="20sp"
-                    android:layout_span="2"
-                    android:id="@+id/textView"/>
+                    android:name="com.gambridzy.balanceboardcontrolapp.ui.PlaythingLayout"
+                    android:id="@+id/plaything0"
+                    tools:layout="@layout/plaything_layout"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
+            <fragment
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="교구 1"
-                    android:textSize="20sp"
-                    android:layout_span="2"/>
+                    android:name="com.gambridzy.balanceboardcontrolapp.ui.PlaythingLayout"
+                    android:id="@+id/plaything1"
+                    tools:layout="@layout/plaything_layout"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
+            <fragment
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="교구 2"
-                    android:textSize="20sp"
-                    android:layout_span="2"/>
+                    android:name="com.gambridzy.balanceboardcontrolapp.ui.PlaythingLayout"
+                    android:id="@+id/plaything2"
+                    tools:layout="@layout/plaything_layout"/>
 
-        </TableRow>
-
-        <!-- ******************** status ******************** -->
-        <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            <TextView
-                    android:layout_width="wrap_content"
+            <fragment
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
-                    android:gravity="end|center_vertical"
-                    android:text="상태:"
-                    android:textSize="15sp"/>
+                    android:name="com.gambridzy.balanceboardcontrolapp.ui.PlaythingLayout"
+                    android:id="@+id/plaything3"
+                    tools:layout="@layout/plaything_layout"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
+            <fragment
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:gravity="start|center_vertical"
-                    android:text="동기화 중"
-                    android:textSize="15sp"
-                    android:id="@+id/synchronizedStatusText"/>
+                    android:name="com.gambridzy.balanceboardcontrolapp.ui.PlaythingLayout"
+                    android:id="@+id/plaything4"
+                    tools:layout="@layout/plaything_layout"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
-                    android:gravity="end|center_vertical"
-                    android:text="상태:"
-                    android:textSize="15sp"/>
+        </LinearLayout>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="start|center_vertical"
-                    android:text="동작 1"
-                    android:textSize="15sp"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
-                    android:gravity="end|center_vertical"
-                    android:text="상태:"
-                    android:textSize="15sp"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="start|center_vertical"
-                    android:text="동작 2"
-                    android:textSize="15sp"/>
-
-        </TableRow>
-
-        <!-- ******************** signal period ******************** -->
-        <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="시그널 주기\n(밀리초)"
-                    android:textSize="15sp"/>
-
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
-                <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:max="3000"
-                        android:progress="1000"/>
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="1000"
-                        android:textSize="15sp"
-                        android:gravity="end|center_vertical"/>
-
-            </LinearLayout>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="시그널 주기\n(밀리초)"
-                    android:textSize="15sp"/>
-
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
-                <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:max="3000"
-                        android:progress="1000"/>
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="1000"
-                        android:textSize="15sp"
-                        android:gravity="end|center_vertical"/>
-
-            </LinearLayout>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="시그널 주기\n(밀리초)"
-                    android:textSize="15sp"/>
-
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
-                <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:max="3000"
-                        android:progress="1000"/>
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="1000"
-                        android:textSize="15sp"
-                        android:gravity="end|center_vertical"/>
-
-            </LinearLayout>
-
-        </TableRow>
-
-        <!-- ******************** transition timing ******************** -->
-        <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="전환 시간\n(초)"
-                    android:textSize="15sp"/>
-
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
-                <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:max="10"
-                        android:progress="5"/>
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5"
-                        android:textSize="15sp"
-                        android:gravity="end|center_vertical"/>
-
-            </LinearLayout>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="전환 시간\n(초)"
-                    android:textSize="15sp"/>
-
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
-                <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:max="10"
-                        android:progress="5"/>
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5"
-                        android:textSize="15sp"
-                        android:gravity="end|center_vertical"/>
-
-            </LinearLayout>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="전환 시간\n(초)"
-                    android:textSize="15sp"/>
-
-            <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
-                <SeekBar
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:max="10"
-                        android:progress="5"/>
-
-                <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5"
-                        android:textSize="15sp"
-                        android:gravity="end|center_vertical"/>
-
-            </LinearLayout>
-
-        </TableRow>
-
-        <!-- ******************** exercise selection ******************** -->
-        <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:gravity="center"
-                    android:entries="@array/exercises"/>
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:gravity="center"
-                    android:entries="@array/exercises"/>
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:gravity="center"
-                    android:entries="@array/exercises"/>
-
-        </TableRow>
-
-        <!-- ******************** level selection ******************** -->
-        <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:gravity="center"
-                    android:entries="@array/levels"/>
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:gravity="center"
-                    android:entries="@array/levels"/>
-
-            <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_span="2"
-                    android:gravity="center"
-                    android:entries="@array/levels"/>
-
-        </TableRow>
-
-        <!-- ******************** start button ******************** -->
-        <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="동기 시작"
-                    android:textSize="15sp"
-                    android:layout_span="2"
-                    android:layout_margin="10dp"
-                    android:onClick="onSynchronizedStartButtonClick"/>
-
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="시작"
-                    android:textSize="15sp"
-                    android:layout_span="2"
-                    android:layout_margin="10dp"/>
-
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="시작"
-                    android:textSize="15sp"
-                    android:layout_span="2"
-                    android:layout_margin="10dp"/>
-
-        </TableRow>
-
-        <!-- ******************** stop button ******************** -->
-        <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="동기 중단"
-                    android:textSize="15sp"
-                    android:layout_span="2"
-                    android:layout_margin="10dp"/>
-
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="중단"
-                    android:textSize="15sp"
-                    android:layout_span="2"
-                    android:layout_margin="10dp"/>
-
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="중단"
-                    android:textSize="15sp"
-                    android:layout_span="2"
-                    android:layout_margin="10dp"/>
-
-        </TableRow>
-
-    </TableLayout>
+    </HorizontalScrollView>
 
 </android.support.constraint.ConstraintLayout>
