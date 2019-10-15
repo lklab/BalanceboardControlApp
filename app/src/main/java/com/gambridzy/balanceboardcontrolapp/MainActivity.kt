@@ -5,12 +5,14 @@ import android.os.Bundle
 import com.gambridzy.balanceboardcontrolapp.ui.PlaythingLayout
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.plaything_layout.*
 import java.net.Socket
 import java.io.IOException
 
 class MainActivity : AppCompatActivity()
 {
+    var playthingLayoutList: ArrayList<PlaythingLayout>? = null
+    var userEventListener: UserEventListener? = null
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -30,11 +32,46 @@ class MainActivity : AppCompatActivity()
 //            }
 //        })
 
-        val playthingLayout = PlaythingLayout()
-        supportFragmentManager.beginTransaction()
-            .add(R.id.mainLinearLayout, playthingLayout)
-            .commit()
-        playthingLayout.myField = 4
+        playthingLayoutList = ArrayList()
+        userEventListener = UserEventListener()
+
+        for(i in 1..6)
+        {
+            val playthingLayout = PlaythingLayout()
+            supportFragmentManager.beginTransaction()
+                .add(R.id.mainLinearLayout, playthingLayout)
+                .commit()
+            playthingLayout.parentHorizontalScrollView = mainHorizontalScrollView
+            playthingLayout.name = "교구 " + i + "번"
+            playthingLayout.userEventListener = userEventListener
+
+            playthingLayoutList?.add(playthingLayout)
+        }
+    }
+
+    inner class UserEventListener : PlaythingLayout.UserEventListener()
+    {
+        override fun onStartButtonClicked(playthingLayout: PlaythingLayout)
+        {
+            val playthingLayout = PlaythingLayout()
+            supportFragmentManager.beginTransaction()
+                .add(R.id.mainLinearLayout, playthingLayout)
+                .commit()
+            playthingLayout.parentHorizontalScrollView = mainHorizontalScrollView
+            playthingLayout.name = "교구 번"
+            playthingLayout.userEventListener = userEventListener
+
+            playthingLayoutList?.add(playthingLayout)
+        }
+
+        override fun onStopButtonClicked(playthingLayout: PlaythingLayout)
+        {
+            supportFragmentManager.beginTransaction()
+                .remove(playthingLayout)
+                .commit()
+
+            playthingLayoutList?.remove(playthingLayout)
+        }
     }
 
 //    fun onSynchronizedStartButtonClick(view: View)
