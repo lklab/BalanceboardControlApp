@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.HorizontalScrollView
 import com.gambridzy.balanceboardcontrolapp.R
-import kotlinx.android.synthetic.main.plaything_layout.view.*
+import kotlinx.android.synthetic.main.outfit_layout.view.*
 
-class PlaythingLayout : Fragment()
+class OutfitLayout : Fragment()
 {
     var myView: View? = null
     var name: String = ""
@@ -20,7 +20,7 @@ class PlaythingLayout : Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?
     {
-        myView = inflater.inflate(R.layout.plaything_layout,null)
+        myView = inflater.inflate(R.layout.outfit_layout,null)
 
         /* setup size (layout parameter */
         val width = (200 * resources.displayMetrics.density + 0.5f).toInt()
@@ -76,7 +76,7 @@ class PlaythingLayout : Fragment()
 
     abstract class UserEventListener
     {
-        abstract fun onStartButtonClicked(playthingLayout: PlaythingLayout)
-        abstract fun onStopButtonClicked(playthingLayout: PlaythingLayout)
+        abstract fun onStartButtonClicked(outfitLayout: OutfitLayout)
+        abstract fun onStopButtonClicked(outfitLayout: OutfitLayout)
     }
 }
