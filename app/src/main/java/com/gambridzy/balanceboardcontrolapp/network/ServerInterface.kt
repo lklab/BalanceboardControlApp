@@ -8,7 +8,7 @@ const val urlRoot: String = "http://192.168.0.12:8000/app/"
 val urlGetOutfitList: URL = URL(urlRoot + "getOutfitList")
 val urlCommand: URL = URL(urlRoot + "command")
 
-class ServerInterface(var onResponseListener: OnResponseListener?)
+class ServerInterface(private var onResponseListener: OnResponseListener)
 {
     fun getOutfitList()
     {

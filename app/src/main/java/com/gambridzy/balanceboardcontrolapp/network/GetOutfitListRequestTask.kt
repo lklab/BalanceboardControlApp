@@ -9,7 +9,7 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 
-class GetOutfitListRequestTask(private val listener: ServerInterface.OnResponseListener?) :
+class GetOutfitListRequestTask(private val listener: ServerInterface.OnResponseListener) :
     AsyncTask<Void, Void, RequestResult<ArrayList<Outfit>?>>()
 {
     override fun doInBackground(vararg params: Void?): RequestResult<ArrayList<Outfit>?>
@@ -50,24 +50,26 @@ class GetOutfitListRequestTask(private val listener: ServerInterface.OnResponseL
     override fun onPostExecute(result: RequestResult<ArrayList<Outfit>?>)
     {
         super.onPostExecute(result)
-        listener?.onGetOutfitList(result)
+        listener.onGetOutfitList(result)
     }
 
     private fun getDataFromJson(json: String): ArrayList<Outfit>
     {
         val jsonObject = JSONObject(json)
-        val jsonArray = jsonObject.getJSONArray("outfitDataList")
         val outfitList = ArrayList<Outfit>()
 
-        for(i in 0..(jsonArray.length() - 1))
+        for(key in jsonObject.keys())
         {
-            val outfitJsonObject = jsonArray.getJSONObject(i)
+            val outfitJsonObject = jsonObject.getJSONObject(key)
 
             outfitList.add(Outfit(
                 outfitJsonObject.getInt("id"),
-                outfitJsonObject.getString("status"),
+                outfitJsonObject.getString("exercise"),
+                outfitJsonObject.getInt("level"),
+                outfitJsonObject.getInt("motion"),
                 outfitJsonObject.getInt("signalPeriod"),
-                outfitJsonObject.getInt("changeTime")))
+                outfitJsonObject.getInt("changeTime")
+            ))
         }
 
         return outfitList

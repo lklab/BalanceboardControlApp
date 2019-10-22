@@ -8,7 +8,7 @@ import java.io.DataOutputStream
 import java.io.IOException
 import java.net.HttpURLConnection
 
-class CommandRequestTask(private val listener: ServerInterface.OnResponseListener?, private val command: Command) :
+class CommandRequestTask(private val listener: ServerInterface.OnResponseListener, private val command: Command) :
     AsyncTask<Void, Void, RequestResult<Void?>>()
 {
     override fun doInBackground(vararg params: Void?): RequestResult<Void?>
@@ -19,10 +19,12 @@ class CommandRequestTask(private val listener: ServerInterface.OnResponseListene
             urlConnection.requestMethod = "POST"
 
             val jsonObject = JSONObject()
-            jsonObject.put("type", command.type.toString())
-            jsonObject.put("target", command.target.toString())
-            jsonObject.put("exercise", command.exercise.toString())
-            jsonObject.put("level", command.level.toString())
+            jsonObject.put("id", command.id)
+            jsonObject.put("type", command.type)
+            jsonObject.put("exercise", command.exercise)
+            jsonObject.put("level", command.level)
+            jsonObject.put("signalPeriod", command.signalPeriod)
+            jsonObject.put("changeTime", command.changeTime)
 
             val dataOutputStream = DataOutputStream(urlConnection.outputStream)
             dataOutputStream.writeBytes(jsonObject.toString())
@@ -44,7 +46,6 @@ class CommandRequestTask(private val listener: ServerInterface.OnResponseListene
     override fun onPostExecute(result: RequestResult<Void?>)
     {
         super.onPostExecute(result)
-        System.out.println("request result: " + result.resultState)
-        listener?.onCommand(result)
+        listener.onCommand(result)
     }
 }

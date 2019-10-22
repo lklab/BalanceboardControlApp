@@ -2,8 +2,10 @@ package com.gambridzy.balanceboardcontrolapp.data
 
 data class Command
 (
+    var id: Int,
     var type: Int,
-    var target: Int,
-    var exercise: Int,
-    var level: Int
+    var exercise: String,
+    var level: Int,
+    var signalPeriod: Int,
+    var changeTime: Int
 )
