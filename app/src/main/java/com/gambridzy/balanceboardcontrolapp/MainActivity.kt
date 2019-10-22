@@ -27,16 +27,6 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
 
         outfitMonitoringTaskHandler.post(outfitMonitoringTask)
-
-        val newOutfitLayout = OutfitLayout()
-        supportFragmentManager.beginTransaction()
-            .add(R.id.mainLinearLayout, newOutfitLayout)
-            .commit()
-        newOutfitLayout.parentHorizontalScrollView = mainHorizontalScrollView
-        newOutfitLayout.name = "교구 번"
-        newOutfitLayout.userEventListener = userEventListener
-
-        outfitLayoutList.add(newOutfitLayout)
     }
 
     override fun onDestroy()
